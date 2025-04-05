@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import "./index.css";
+import { type } from "@testing-library/user-event/dist/type";
 
 /*
 INSTRUCTIONS / CONSIDERATIONS:
@@ -50,6 +51,12 @@ function reducer(state, action) {
         ...state,
         loan: 5000,
         balance: state.balance + 5000,
+      };
+    case "payLoan":
+      return {
+        ...state,
+        balance: state.balance - state.loan,
+        loan: 0,
       };
     default:
       throw new Error("Action unkonown");
@@ -105,7 +112,11 @@ export default function App() {
         </button>
       </p>
       <p>
-        <button onClick={() => {}} disabled={false}>
+        <button
+          onClick={() => {
+            dispatch({ type: "payLoan" });
+          }}
+          disabled={false}>
           Pay loan
         </button>
       </p>
