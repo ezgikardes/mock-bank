@@ -44,6 +44,13 @@ function reducer(state, action) {
         ...state,
         balance: state.balance - 50,
       };
+    case "requestLoan":
+      if (state.loan > 0) return state;
+      return {
+        ...state,
+        loan: 5000,
+        balance: state.balance + 5000,
+      };
     default:
       throw new Error("Action unkonown");
   }
@@ -59,7 +66,7 @@ export default function App() {
     <div className="App">
       <h1>Mock Bank</h1>
       <p>Balance: {balance}</p>
-      <p>Loan: X</p>
+      <p>Loan: {loan}</p>
 
       <p>
         <button
@@ -89,7 +96,11 @@ export default function App() {
         </button>
       </p>
       <p>
-        <button onClick={() => {}} disabled={false}>
+        <button
+          onClick={() => {
+            dispatch({ type: "requestLoan" });
+          }}
+          disabled={false}>
           Request a loan of 5000
         </button>
       </p>
