@@ -86,7 +86,7 @@ export default function App() {
           onClick={() => {
             dispatch({ type: "openAccount" });
           }}
-          disabled={false}>
+          disabled={isActive}>
           Open account
         </button>
       </p>
@@ -95,7 +95,7 @@ export default function App() {
           onClick={() => {
             dispatch({ type: "deposit" });
           }}
-          disabled={false}>
+          disabled={!isActive}>
           Deposit 150
         </button>
       </p>
@@ -104,7 +104,7 @@ export default function App() {
           onClick={() => {
             dispatch({ type: "withdraw" });
           }}
-          disabled={false}>
+          disabled={!isActive}>
           Withdraw 50
         </button>
       </p>
@@ -113,7 +113,7 @@ export default function App() {
           onClick={() => {
             dispatch({ type: "requestLoan" });
           }}
-          disabled={false}>
+          disabled={!isActive}>
           Request a loan of 5000
         </button>
       </p>
@@ -122,7 +122,7 @@ export default function App() {
           onClick={() => {
             dispatch({ type: "payLoan" });
           }}
-          disabled={false}>
+          disabled={!isActive}>
           Pay loan
         </button>
       </p>
@@ -131,7 +131,7 @@ export default function App() {
           onClick={() => {
             dispatch({ type: "closeAccount" });
           }}
-          disabled={false}>
+          disabled={!isActive}>
           Close account
         </button>
       </p>
